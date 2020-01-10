@@ -1,0 +1,29 @@
+from django.shortcuts import render,HttpResponse
+from middleapp.forms import LoginForm
+
+# Create your views here.
+def home(request):
+    return HttpResponse("<h1>Hello HttpResponse........</h1>")
+def home_view(request):
+    form=LoginForm()
+    return render(request,"middleapp/home.html",{"form":form})
+def home2(request):
+    form=LoginForm()
+    name1=request.POST.get("username")
+    response=render(request,"middleapp/home1.html",{"form":form})
+    response.set_cookie("username1",name1)
+    return response
+def home3(request):
+    form=LoginForm()
+    name2=request.POST.get("username")
+    response=render(request,"middleapp/home2.html",{"form":form})
+    response.set_cookie("username2",name2)
+    return response
+def home4(request):
+    form=LoginForm()
+    name3=request.POST.get("username")
+    name1=request.COOKIES["username1"]
+    name2=request.COOKIES["username2"]
+    response=render(request,"middleapp/home3.html",{"name1":name1,"name2":name2,"name3":name3})
+    response.set_cookie("username",name3)
+    return response

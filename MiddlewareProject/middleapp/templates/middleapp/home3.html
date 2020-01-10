@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <center>
+  <h2><body>
+
+    {% for k,v in request.session.items %}
+      <h1>{{k}}:{{v}}</h1><br>
+    {% endfor %}
+    <!-- username:{{name1}}
+      username:{{name2}}
+        username:{{name3}}
+  </body></h2> -->
+  </center>
+</html>
